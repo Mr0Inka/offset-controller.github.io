@@ -4,8 +4,9 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/offset-controller/',   // <-- ADD THIS LINE
   server: {
-    host: '0.0.0.0', // Allow connections from local network
+    host: '0.0.0.0',
     port: 3000,
   },
   build: {
