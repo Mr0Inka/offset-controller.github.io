@@ -1742,6 +1742,18 @@ html {
   font-weight: 600;
 }
 
+/* Five stats per room: spread them evenly on narrow screens instead of a fixed gap */
+@media (max-width: 480px) {
+  .room-bar-stats {
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  .room-bar-label {
+    letter-spacing: 0.3px;
+  }
+}
+
 
 /* Room Modal */
 .room-modal-overlay {

@@ -230,6 +230,9 @@ export const useInfluxData = (targetPoints: number) => {
                     case 'humidity':
                       latestPoint.tadoHumidity = value;
                       break;
+                    case 'offset':
+                      latestPoint.tadoOffset = value;
+                      break;
                   }
                 }
               }

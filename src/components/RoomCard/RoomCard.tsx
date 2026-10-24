@@ -25,6 +25,7 @@ export const RoomCard = ({
   const roomLastSensorData = getLastSensorData(room);
   const roomLastTargetData = getLastTargetData(room);
   const roomLastPowerData = getLastPowerData(room);
+  const roomOffset = roomLatestData[room]?.tadoOffset;
 
   return (
     <div className="room-card">
@@ -46,6 +47,7 @@ export const RoomCard = ({
           <div className="room-bar-stats">
             {isLoading ? (
               <>
+                <div className="room-bar-stat skeleton-stat"></div>
                 <div className="room-bar-stat skeleton-stat"></div>
                 <div className="room-bar-stat skeleton-stat"></div>
                 <div className="room-bar-stat skeleton-stat"></div>
@@ -81,6 +83,14 @@ export const RoomCard = ({
                 <div className="room-bar-stat">
                   <span className="room-bar-label">Power</span>
                   <span className="room-bar-value">{roomLastPowerData?.tadoPower?.toFixed(0) || '0'}%</span>
+                </div>
+                <div className="room-bar-stat">
+                  <span className="room-bar-label">Offset</span>
+                  <span className="room-bar-value">
+                    {roomOffset !== null && roomOffset !== undefined
+                      ? `${roomOffset > 0 ? '+' : ''}${roomOffset.toFixed(1)}°`
+                      : 'N/A'}
+                  </span>
                 </div>
               </>
             )}
